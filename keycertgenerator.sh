@@ -9,7 +9,7 @@ sudo mkdir /etc/certs
 #Creates the file containing the password for generating key and certificate
 echo "password" | sudo tee -a $PASSFILE > /dev/null
 
-#Creates the file containing the vehicle info for generating key and certificate
+#Creates the file containing the Certification Authority info for generating key and certificate
 echo "UK,Manchester,Greater,Manchester,CAserver,server,CA" | sudo tee -a $SUBINFO > /dev/null
 
 #Loops through created subjectinfo file and assigns each value to a variable
