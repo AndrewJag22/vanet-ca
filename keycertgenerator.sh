@@ -27,5 +27,4 @@ done < "$SUBINFO"
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout $CAKEY -passout file:$PASSFILE -subj "/C=$CO/ST=$ST/L=$LO/O=$OR/OU=$OU/CN=$CN" -out $CACERT
 
 #Copies the ca certificate to folder for clients to download
-cp /etc/certs/ca.crt /srv/sftp/outgoing_certificates/ca.crt
-chmod 744 /srv/sftp/outgoing_certificates/ca.crt
+cp /etc/certs/ca.crt /srv/sftp/ca.crt
