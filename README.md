@@ -9,4 +9,8 @@ The password file contains the password to be used for generating certification 
 The subjectinfo file contains the information that would normally be inputted using the openssl command. The parameters are separated using commas.
 The format is as follows: Country,State,Locality,OrganizationName,OrganizationalUnitName,CommonName
 
-An example is given in the created subjectinfo file
+An example is given in the created subjectinfo file.
+
+On downloading, the ca_crontab.sh file should be run as root using command:
+
+    sudo ./ca_crontab.sh
