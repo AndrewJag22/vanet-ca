@@ -1,5 +1,8 @@
 import os, pathlib                                                                       
-import pyinotify
+import pyinotify, logging
+
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(levelname)s :: %(message)s', file='certificates.log')
 
 incoming='/srv/sftp/incoming_requests/'
 outgoing='/srv/sftp/outgoing_certificates/'
@@ -18,7 +21,8 @@ class EventHandler(pyinotify.ProcessEvent):
             client_crt = outgoing + fname[0] + ".crt"                                    
             print(fname[0])
             #generates certificate from client's signature request and drops the certificate in sftp/outgoing_certificates folder
-            os.system("openssl x509 -req -in " + client_csr + " -CA /etc/certs/ca.crt -CAkey /etc/certs/ca.key -CAcreateserial -passin file:/etc/certs/passwordfile -out " + client_crt +" -days 356\nrm " + client_csr)                                                
+            os.system("openssl x509 -req -in " + client_csr + " -CA /etc/certs/ca.crt -CAkey /etc/certs/ca.key -CAcreateserial -passin file:/etc/certs/passwordfile -out " + client_crt +" -days 356\nrm " + client_csr)
+            logging.info("Certificate for " + fname[0] + " has ben generated")
 
 
     def process_IN_MOVED_TO(self, event):                                       
@@ -31,7 +35,7 @@ class EventHandler(pyinotify.ProcessEvent):
             client_crt = outgoing + fname[0] + ".crt"                                      
             print(fname[0])                                            
             os.system("openssl x509 -req -in " + client_csr + " -CA /etc/certs/ca.crt -CAkey /etc/certs/ca.key -CAcreateserial -passin file:/etc/certs/passwordfile -out " + client_crt +" -days 356\nrm " + client_csr)
-
+            logging.info("Certificate for " + fname[0] + " has ben generated")
 
     def process_IN_CREATE(self, event):                                         
         """                                                                     
@@ -43,7 +47,7 @@ class EventHandler(pyinotify.ProcessEvent):
             client_crt = outgoing + fname[0] + ".crt" 
             print(fname[0])                                             
             os.system("openssl x509 -req -in " + client_csr + " -CA /etc/certs/ca.crt -CAkey /etc/certs/ca.key -CAcreateserial -passin file:/etc/certs/passwordfile -out " + client_crt +" -days 356\nrm " + client_csr)
-
+            logging.info("Certificate for " + fname[0] + " has ben generated")
 
 def main():                                                                     
     # watch manager                                                             
