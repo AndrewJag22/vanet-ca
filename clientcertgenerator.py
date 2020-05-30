@@ -2,7 +2,7 @@ import os, pathlib
 import pyinotify, logging
 
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(levelname)s :: %(message)s', filename='certificates.log')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(levelname)s :: %(message)s', filename='/var/log/certificates.log')
 
 incoming='/srv/sftp/incoming_requests/'
 outgoing='/srv/sftp/outgoing_certificates/'
