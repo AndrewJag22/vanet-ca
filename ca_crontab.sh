@@ -1,4 +1,5 @@
-# Runs key generator
+# Makes the key generator script executable and then runs it
+chmod +x keycertgenerator.sh
 ./keycertgenerator.sh
 
 # Installs pyinotify for the service to use
