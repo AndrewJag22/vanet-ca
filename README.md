@@ -13,4 +13,4 @@ An example is given in the created subjectinfo file.
 
 On downloading, the ca_crontab.sh file should be run as root using command:
 
-    sudo ./ca_crontab.sh
+    sudo bash ./ca_crontab.sh
