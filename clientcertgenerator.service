@@ -1,0 +1,11 @@
+[Unit]
+Description=Client Certificate Generator
+After=multi-user.target
+
+[Service]
+user=user
+Type=simple
+ExecStart=/usr/bin/python3 /etc/certs/free.py
+
+[Install]
+WantedBy=multi-user.target
