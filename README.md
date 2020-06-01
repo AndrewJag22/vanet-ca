@@ -11,6 +11,6 @@ The format is as follows: Country,State,Locality,OrganizationName,Organizational
 
 An example is given in the created subjectinfo file.
 
-On downloading, the ca_crontab.sh file should be run as root using command:
+On downloading, the ca_setup.sh file should be run as root using command:
 
-    sudo bash ./ca_crontab.sh
+    sudo bash ./ca_setup.sh
