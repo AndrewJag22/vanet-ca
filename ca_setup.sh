@@ -1,3 +1,6 @@
+# Installs packages and dependencies for the service to use
+sudo apt-get install -y python3-pyinotify openssh-server openssh-sftp-server expect
+
 # Creating sftp user profile and sftp folders
 useradd -m vanetclients
 usermod -s /usr/bin/nologin vanetclients
@@ -21,9 +24,6 @@ echo -e "\n#sftp server setup and information\nMatch group sftpgroup\n\tForceCom
 # Makes the key generator script executable and then runs it
 chmod +x keycertgenerator.sh
 ./keycertgenerator.sh
-
-# Installs pyinotify for the service to use
-sudo apt-get install -y python3-pyinotify openssh-server openssh-sftp-server expect
 
 # Copies client certificate generator into /etc/certs folder
 cp clientcertgenerator.py /etc/certs/clientcertgenerator.py
