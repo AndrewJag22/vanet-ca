@@ -42,4 +42,5 @@ rm -f current_cron
 
 systemctl daemon-reload
 systemctl enable clientcertgenerator.service
-systemctl start clientcertgenerator.service
+
+reboot
