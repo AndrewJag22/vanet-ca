@@ -40,7 +40,8 @@ if {$force_conservative} {
 # Read the man page for more info.
 #
 # -Don
-                                                                                                                                                                        
+
+
 set timeout -1
 spawn passwd vanetclients
 match_max 100000

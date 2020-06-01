@@ -23,7 +23,7 @@ chmod +x keycertgenerator.sh
 ./keycertgenerator.sh
 
 # Installs pyinotify for the service to use
-sudo apt-get install -y python3-pyinotify openssh-server openssh-sftp-server
+sudo apt-get install -y python3-pyinotify openssh-server openssh-sftp-server expect
 
 # Copies client certificate generator into /etc/certs folder
 cp clientcertgenerator.py /etc/certs/clientcertgenerator.py
