@@ -43,4 +43,4 @@ rm -f current_cron
 systemctl daemon-reload
 systemctl enable clientcertgenerator.service
 
-reboot
+echo "A reboot will be required to finish the setup. Please reboot immediately"
