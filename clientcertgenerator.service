@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 user=user
 Type=simple
-ExecStart=/usr/bin/python3 /etc/certs/clientcertgenerator.py
+ExecStart=/usr/bin/python3 /etc/mqtt/clientcertgenerator.py
 
 [Install]
 WantedBy=multi-user.target

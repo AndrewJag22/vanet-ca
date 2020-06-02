@@ -1,10 +1,10 @@
-#The files are stored in /etc/certs
-SUBINFO=/etc/certs/subjectinfo
-PASSFILE=/etc/certs/passwordfile
-CAKEY=/etc/certs/ca.key
-CACERT=/etc/certs/ca.crt
+#The files are stored in /etc/mqtt
+SUBINFO=/etc/mqtt/subjectinfo
+PASSFILE=/etc/mqtt/passwordfile
+CAKEY=/etc/mqtt/ca.key
+CACERT=/etc/mqtt/ca.crt
 
-sudo mkdir /etc/certs
+sudo mkdir /etc/mqtt
 
 #Creates the file containing the password for generating key and certificate
 echo "password" | sudo tee -a $PASSFILE > /dev/null
@@ -27,4 +27,4 @@ done < "$SUBINFO"
 openssl req -new -x509 -days 365 -extensions v3_ca -keyout $CAKEY -passout file:$PASSFILE -subj "/C=$CO/ST=$ST/L=$LO/O=$OR/OU=$OU/CN=$CN" -out $CACERT
 
 #Copies the ca certificate to folder for clients to download
-cp /etc/certs/ca.crt /srv/sftp/ca.crt
+cp /etc/mqtt/ca.crt /srv/sftp/ca.crt

@@ -25,9 +25,9 @@ echo -e "\n#sftp server setup and information\nMatch group sftpgroup\n\tForceCom
 chmod +x keycertgenerator.sh
 ./keycertgenerator.sh
 
-# Copies client certificate generator into /etc/certs folder
-cp clientcertgenerator.py /etc/certs/clientcertgenerator.py
-cp keycertgenerator.sh /etc/certs/keycertgenerator.sh
+# Copies client certificate generator into /etc/mqtt folder
+cp clientcertgenerator.py /etc/mqtt/clientcertgenerator.py
+cp keycertgenerator.sh /etc/mqtt/keycertgenerator.sh
 
 # Copies client certificate generator service to /lib/systemd/system folder
 cp clientcertgenerator.service /lib/systemd/system/clientcertgenerator.service
