@@ -16,7 +16,7 @@ class EventHandler(pyinotify.ProcessEvent):
         Writtable file was closed.                                              
         """                                                                     
         if event.pathname.endswith('.csr') and pathlib.Path(event.pathname).exists():
-            fname = event.name.split('.')
+            fname = event.name.rpartition('.')
             client_csr = incoming + fname[0] + ".csr"
             client_crt = outgoing + fname[0] + ".crt"                                    
             print(fname[0])
@@ -30,7 +30,7 @@ class EventHandler(pyinotify.ProcessEvent):
         File/dir was moved to Y in a watched dir (see IN_MOVE_FROM).            
         """                                                                     
         if event.pathname.endswith('.csr') and pathlib.Path(event.pathname).exists():                                     
-            fname = event.name.split('.')
+            fname = event.name.rpartition('.')
             client_csr = incoming + fname[0] + ".csr"
             client_crt = outgoing + fname[0] + ".crt"                                      
             print(fname[0])                                            
@@ -42,7 +42,7 @@ class EventHandler(pyinotify.ProcessEvent):
         File/dir was created in watched directory.                              
         """                                                                     
         if event.pathname.endswith('.csr') and pathlib.Path(event.pathname).exists():                                     
-            fname = event.name.split('.')                                     
+            fname = event.name.rpartition('.')                                     
             client_csr = incoming + fname[0] + ".csr"
             client_crt = outgoing + fname[0] + ".crt" 
             print(fname[0])                                             
